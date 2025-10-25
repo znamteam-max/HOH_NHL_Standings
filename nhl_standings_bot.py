@@ -20,8 +20,8 @@ TZ = ZoneInfo("Europe/Helsinki")
 DATE_FMT = "%d %b %Y"
 
 USER_AGENT = (
-    "NHL-Standings-Bot/1.0 "
-    "(+https://site.web.api.espn.com/apis/v2/; +https://site.api.espn.com/apis/v2/)"
+    "NHL-Standings-Bot/1.1 "
+    "(+https://site.api.espn.com/apis/v2/; +https://site.web.api.espn.com/apis/v2/)"
 )
 
 # ====== Русские названия команд (ESPN аббревиатуры) ======
@@ -45,6 +45,7 @@ RU_BY_ABBR: Dict[str, str] = {
     "PIT": "Питтсбург Пингвинз",
     "WSH": "Вашингтон Кэпиталз",
     # Central
+    "ARI": "Аризона Койотис",   # на всякий случай
     "CHI": "Чикаго Блэкхокс",
     "COL": "Колорадо Эвеланш",
     "DAL": "Даллас Старз",
@@ -52,7 +53,7 @@ RU_BY_ABBR: Dict[str, str] = {
     "NSH": "Нэшвилл Предаторз",
     "STL": "Сент-Луис Блюз",
     "WPG": "Виннипег Джетс",
-    # Utah (разные варианты у ESPN встречаются)
+    # Utah (варианты у ESPN встречаются разные)
     "UTH": "Юта Маммотс",
     "UTA": "Юта Маммотс",
     "UTAH": "Юта Маммотс",
@@ -68,7 +69,7 @@ RU_BY_ABBR: Dict[str, str] = {
     "VGK": "Вегас Голден Найтс",
 }
 
-# иногда ESPN может прислать короткие обозначения
+# короткие варианты аббревиатур
 VARIANT_TO_ESPN_ABBR = {
     "TB": "TBL",
     "LA": "LAK",
@@ -159,24 +160,37 @@ def save_current_as_prev(today: dt.date, by_division: Dict[str, List[Dict]]) -> 
     div_map: Dict[str, Dict[str, int]] = {}
     for div_name, rows in by_division.items():
         div_map[div_name] = {r["abbr"]: r["rank"] for r in rows}
-    payload = {
-        "date": today.isoformat(),
-        "divisions": div_map
-    }
+    payload = {"date": today.isoformat(), "divisions": div_map}
     with PREV_FILE.open("w", encoding="utf-8") as f:
         json.dump(payload, f, ensure_ascii=False, indent=2)
 
-# ====== ESPN NHL standings (JSON) ======
-def _gather_standings_nodes(node: Any, out: List[dict]) -> None:
+# ====== ESPN NHL standings (JSON, division level) ======
+def _gather_division_entries(node: Any, acc: Dict[str, List[dict]]) -> None:
+    """
+    Рекурсивно обходим JSON и собираем блоки, где:
+      - есть поле name/shortName/abbreviation с именем дивизиона
+      - и внутри есть standings.entries
+    """
     if isinstance(node, dict):
+        name = (node.get("name") or node.get("shortName") or node.get("abbreviation") or "")
+        lname = name.lower()
+        is_div = any(k in lname for k in ("atlantic", "metropolitan", "central", "pacific"))
         st = node.get("standings")
-        if isinstance(st, dict) and isinstance(st.get("entries"), list) and st["entries"]:
-            out.append(node)
+        if is_div and isinstance(st, dict) and isinstance(st.get("entries"), list) and st["entries"]:
+            key = (
+                "Atlantic" if "atlantic" in lname else
+                "Metropolitan" if "metropolitan" in lname else
+                "Central" if "central" in lname else
+                "Pacific" if "pacific" in lname else None
+            )
+            if key:
+                acc[key] = st["entries"]
+        # продолжим углубляться
         for v in node.values():
-            _gather_standings_nodes(v, out)
+            _gather_division_entries(v, acc)
     elif isinstance(node, list):
         for v in node:
-            _gather_standings_nodes(v, out)
+            _gather_division_entries(v, acc)
 
 def _stats_to_map(stats_list: List[dict]) -> Dict[str, Any]:
     m: Dict[str, Any] = {}
@@ -203,7 +217,6 @@ def _entries_to_rows(entries: List[dict]) -> List[Dict]:
 
         rows.append({"team": display, "abbr": abbr, "gp": gp, "w": w, "l": l, "ot": ot, "pts": pts})
 
-    # сортируем по очкам, затем по победам
     rows.sort(key=lambda x: (-x["pts"], -x["w"], x["team"]))
     for i, r in enumerate(rows, 1):
         r["rank"] = i
@@ -217,47 +230,40 @@ def fetch_nhl_standings_by_division() -> Dict[str, Dict[str, List[Dict]]]:
         "west": {"Central":[...], "Pacific":[...]}
       }
     """
+    # ключ: level=3 -> дивизионная разбивка; сортировка по посеву/очкам/играм/ROW
+    params = {
+        "region": "us",
+        "lang": "en",
+        "contentorigin": "espn",
+        "type": "0",
+        "level": "3",
+        "sort": "playoffseed:asc,points:desc,gamesplayed:asc,rotwins:desc",
+    }
     candidates = [
-        "https://site.web.api.espn.com/apis/v2/sports/hockey/nhl/standings?region=us&lang=en&contentorigin=espn",
-        "https://site.api.espn.com/apis/v2/sports/hockey/nhl/standings?region=us&lang=en",
+        "https://site.api.espn.com/apis/v2/sports/hockey/nhl/standings",
+        "https://site.web.api.espn.com/apis/v2/sports/hockey/nhl/standings",
     ]
     data = {}
     for u in candidates:
-        data = _get_json(u)
+        data = _get_json(u, params=params)
         if data:
             break
     if not data:
         return {"east": {}, "west": {}}
 
-    nodes: List[dict] = []
-    _gather_standings_nodes(data, nodes)
+    divisions_raw: Dict[str, List[dict]] = {}
+    _gather_division_entries(data, divisions_raw)
 
-    divisions: Dict[str, List[Dict]] = {}  # "Atlantic":[rows], ...
-    def push_div(name: str, entries: List[dict]):
-        lname = (name or "").lower()
-        key = None
-        if "atlantic" in lname:
-            key = "Atlantic"
-        elif "metropolitan" in lname:
-            key = "Metropolitan"
-        elif "central" in lname:
-            key = "Central"
-        elif "pacific" in lname:
-            key = "Pacific"
-        if key:
-            divisions[key] = _entries_to_rows(entries)
+    # на всякий случай: иногда дивизионы могут лежать одним массивом в "children"
+    if not divisions_raw and "children" in data:
+        for ch in data.get("children") or []:
+            _gather_division_entries(ch, divisions_raw)
 
-    # соберём из всех узлов
-    for n in nodes:
-        name = n.get("name") or n.get("shortName") or n.get("abbreviation") or ""
-        st = n.get("standings") or {}
-        entries = st.get("entries") or []
-        if entries:
-            push_div(name, entries)
+    # преобразуем entries -> rows
+    div_rows: Dict[str, List[Dict]] = {k: _entries_to_rows(v) for k, v in divisions_raw.items()}
 
-    # расклад по конференциям
-    east = {k: divisions.get(k, []) for k in ("Atlantic", "Metropolitan")}
-    west = {k: divisions.get(k, []) for k in ("Central", "Pacific")}
+    east = {k: div_rows.get(k, []) for k in ("Atlantic", "Metropolitan")}
+    west = {k: div_rows.get(k, []) for k in ("Central", "Pacific")}
     return {"east": east, "west": west}
 
 # ====== тренд внутри дивизионов ======
@@ -274,16 +280,17 @@ _TAG_RE = re.compile(r"<[^>]+>")
 
 def fmt_division(title: str, rows: List[Dict]) -> str:
     """
-    Пример строки:
-      1  🟢▲+1  Бостон Брюинз  6  4-1-1  9
-    После 3-го места — разделитель '-------'
+    Формат строк:
+      1  🟢▲+1  Бостон Брюинз   6   4   1   1    9
+         (место, стрелка) (РУС название) (GP) (W) (L) (OT) (PTS)
+    После 3-го места — короткий разделитель '-------'.
     """
     out = [f"<b>{escape(title)}</b>"]
     for r in rows:
         line = (
             f"{r['rank']:>2} {arrow(r.get('delta_places')):>4}  "
             f"{escape(RU_BY_ABBR.get(r['abbr'], r['team']))}  "
-            f"{r['gp']:>2}  {r['w']}-{r['l']}-{r['ot']}  {r['pts']}"
+            f"{r['gp']:>2}  {r['w']:>2}  {r['l']:>2}  {r['ot']:>2}  {r['pts']:>3}"
         )
         out.append(line)
         if r["rank"] == 3:
@@ -310,7 +317,7 @@ def build_message() -> str:
     save_current_as_prev(today, all_divs)
 
     head = f"<b>НХЛ · Таблица по дивизионам</b> — {today.strftime(DATE_FMT)}"
-    info = "ℹ️ Источник: ESPN JSON. Сравнение — с предыдущего поста (локальный файл)."
+    info = "ℹ️ Источник: ESPN JSON (level=3 — дивизионы). Сравнение — с предыдущего поста (локальный файл)."
 
     east_block = "\n\n".join([
         fmt_division(f"Восток — {DIV_RU['Atlantic']}", east_divs["Atlantic"]),
