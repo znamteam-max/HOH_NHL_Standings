@@ -45,7 +45,7 @@ RU_BY_ABBR: Dict[str, str] = {
     "PIT": "Питтсбург Пингвинз",
     "WSH": "Вашингтон Кэпиталз",
     # Central
-    "ARI": "Аризона Койотис",
+    "ARI": "Аризона Койотис",   # на всякий случай
     "CHI": "Чикаго Блэкхокс",
     "COL": "Колорадо Эвеланш",
     "DAL": "Даллас Старз",
@@ -272,7 +272,7 @@ def attach_trend_div(rows: List[Dict], y_positions: Dict[str, int]) -> List[Dict
     return ranked
 
 # ====== форматирование ======
-_TAG_RE = re.compile(r"<[^>]+>")  # может пригодиться, оставим
+_TAG_RE = re.compile(r"<[^>]+>")  # оставим на будущее
 
 def fmt_division(title: str, rows: List[Dict]) -> str:
     """
@@ -319,7 +319,7 @@ def build_message() -> str:
     ])
     west_block = "\n\n".join([
         fmt_division(f"Запад — {DIV_RU['Central']}", west_divs["Central"]),
-        fmt_division(f"Запад — {DIV_RУ['Pacific']}", west_divs["Pacific"]),
+        fmt_division(f"Запад — {DIV_RU['Pacific']}", west_divs["Pacific"]),
     ])
 
     return "\n\n".join([head, east_block, "", west_block, "", info])
