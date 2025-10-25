@@ -20,7 +20,7 @@ TZ = ZoneInfo("Europe/Helsinki")
 DATE_FMT = "%d %b %Y"
 
 USER_AGENT = (
-    "NHL-Standings-Bot/1.1 "
+    "NHL-Standings-Bot/1.2 "
     "(+https://site.api.espn.com/apis/v2/; +https://site.web.api.espn.com/apis/v2/)"
 )
 
@@ -45,7 +45,7 @@ RU_BY_ABBR: Dict[str, str] = {
     "PIT": "Питтсбург Пингвинз",
     "WSH": "Вашингтон Кэпиталз",
     # Central
-    "ARI": "Аризона Койотис",   # на всякий случай
+    "ARI": "Аризона Койотис",
     "CHI": "Чикаго Блэкхокс",
     "COL": "Колорадо Эвеланш",
     "DAL": "Даллас Старз",
@@ -185,7 +185,6 @@ def _gather_division_entries(node: Any, acc: Dict[str, List[dict]]) -> None:
             )
             if key:
                 acc[key] = st["entries"]
-        # продолжим углубляться
         for v in node.values():
             _gather_division_entries(v, acc)
     elif isinstance(node, list):
@@ -230,7 +229,6 @@ def fetch_nhl_standings_by_division() -> Dict[str, Dict[str, List[Dict]]]:
         "west": {"Central":[...], "Pacific":[...]}
       }
     """
-    # ключ: level=3 -> дивизионная разбивка; сортировка по посеву/очкам/играм/ROW
     params = {
         "region": "us",
         "lang": "en",
@@ -254,12 +252,10 @@ def fetch_nhl_standings_by_division() -> Dict[str, Dict[str, List[Dict]]]:
     divisions_raw: Dict[str, List[dict]] = {}
     _gather_division_entries(data, divisions_raw)
 
-    # на всякий случай: иногда дивизионы могут лежать одним массивом в "children"
     if not divisions_raw and "children" in data:
         for ch in data.get("children") or []:
             _gather_division_entries(ch, divisions_raw)
 
-    # преобразуем entries -> rows
     div_rows: Dict[str, List[Dict]] = {k: _entries_to_rows(v) for k, v in divisions_raw.items()}
 
     east = {k: div_rows.get(k, []) for k in ("Atlantic", "Metropolitan")}
@@ -276,21 +272,21 @@ def attach_trend_div(rows: List[Dict], y_positions: Dict[str, int]) -> List[Dict
     return ranked
 
 # ====== форматирование ======
-_TAG_RE = re.compile(r"<[^>]+>")
+_TAG_RE = re.compile(r"<[^>]+>")  # может пригодиться, оставим
 
 def fmt_division(title: str, rows: List[Dict]) -> str:
     """
     Формат строк:
-      1  🟢▲+1  Бостон Брюинз   6   4   1   1    9
-         (место, стрелка) (РУС название) (GP) (W) (L) (OT) (PTS)
-    После 3-го места — короткий разделитель '-------'.
+      1  🟢▲+1  Бостон Брюинз  9 м. / <b>(6-3-0)</b> / 12 о.
+    После 3-го места — разделитель '-------'.
     """
     out = [f"<b>{escape(title)}</b>"]
     for r in rows:
+        gp, w, l, ot, pts = r["gp"], r["w"], r["l"], r["ot"], r["pts"]
         line = (
             f"{r['rank']:>2} {arrow(r.get('delta_places')):>4}  "
             f"{escape(RU_BY_ABBR.get(r['abbr'], r['team']))}  "
-            f"{r['gp']:>2}  {r['w']:>2}  {r['l']:>2}  {r['ot']:>2}  {r['pts']:>3}"
+            f"{gp} м. / <b>({w}-{l}-{ot})</b> / {pts} о."
         )
         out.append(line)
         if r["rank"] == 3:
@@ -304,7 +300,6 @@ def build_message() -> str:
     cur = fetch_nhl_standings_by_division()
     prev = load_prev_positions()
 
-    # тренд по каждому дивизиону
     east_divs = {}
     for d in CONF_DIV_ORDER["east"]:
         east_divs[d] = attach_trend_div(cur["east"].get(d, []), (prev["divisions"].get(d) or {}))
@@ -312,7 +307,6 @@ def build_message() -> str:
     for d in CONF_DIV_ORDER["west"]:
         west_divs[d] = attach_trend_div(cur["west"].get(d, []), (prev["divisions"].get(d) or {}))
 
-    # сохранение «сегодня» как «вчера» на следующий запуск
     all_divs = {**east_divs, **west_divs}
     save_current_as_prev(today, all_divs)
 
@@ -325,7 +319,7 @@ def build_message() -> str:
     ])
     west_block = "\n\n".join([
         fmt_division(f"Запад — {DIV_RU['Central']}", west_divs["Central"]),
-        fmt_division(f"Запад — {DIV_RU['Pacific']}", west_divs["Pacific"]),
+        fmt_division(f"Запад — {DIV_RУ['Pacific']}", west_divs["Pacific"]),
     ])
 
     return "\n\n".join([head, east_block, "", west_block, "", info])
