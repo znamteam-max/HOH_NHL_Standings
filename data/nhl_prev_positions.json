@@ -1,5 +1,5 @@
 {
-  "date": "2025-10-26",
+  "date": "2025-10-27",
   "divisions": {
     "Atlantic": {
       "MTL": 1,
@@ -25,19 +25,19 @@
       "UTA": 1,
       "COL": 2,
       "WPG": 3,
-      "CHI": 4,
-      "NSH": 5,
-      "DAL": 6,
+      "DAL": 4,
+      "CHI": 5,
+      "NSH": 6,
       "MIN": 7,
       "STL": 8
     },
     "Pacific": {
-      "SEA": 1,
-      "VGK": 2,
-      "ANA": 3,
-      "EDM": 4,
-      "LAK": 5,
-      "VAN": 6,
+      "VGK": 1,
+      "SEA": 2,
+      "LAK": 3,
+      "VAN": 4,
+      "EDM": 5,
+      "ANA": 6,
       "SJ": 7,
       "CGY": 8
     }
