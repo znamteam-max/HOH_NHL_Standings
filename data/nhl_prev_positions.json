@@ -1,30 +1,30 @@
 {
-  "date": "2025-10-30",
+  "date": "2025-10-31",
   "divisions": {
     "Atlantic": {
-      "MTL": 1,
-      "DET": 2,
-      "FLA": 3,
-      "OTT": 4,
-      "TOR": 5,
-      "BOS": 6,
-      "BUF": 7,
-      "TBL": 8
+      "DET": 1,
+      "MTL": 2,
+      "OTT": 3,
+      "BOS": 4,
+      "TBL": 5,
+      "FLA": 6,
+      "TOR": 7,
+      "BUF": 8
     },
     "Metropolitan": {
-      "NJ": 1,
-      "PIT": 2,
+      "PIT": 1,
+      "NJ": 2,
       "CAR": 3,
-      "CBJ": 4,
-      "WSH": 5,
-      "PHI": 6,
+      "PHI": 4,
+      "CBJ": 5,
+      "WSH": 6,
       "NYR": 7,
       "NYI": 8
     },
     "Central": {
       "UTA": 1,
-      "COL": 2,
-      "WPG": 3,
+      "WPG": 2,
+      "COL": 3,
       "DAL": 4,
       "CHI": 5,
       "NSH": 6,
@@ -34,10 +34,10 @@
     "Pacific": {
       "VGK": 1,
       "LAK": 2,
-      "SEA": 3,
-      "EDM": 4,
-      "ANA": 5,
-      "VAN": 6,
+      "EDM": 3,
+      "SEA": 4,
+      "VAN": 5,
+      "ANA": 6,
       "SJ": 7,
       "CGY": 8
     }
