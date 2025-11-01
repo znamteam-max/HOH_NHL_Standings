@@ -1,5 +1,5 @@
 {
-  "date": "2025-10-31",
+  "date": "2025-11-01",
   "divisions": {
     "Atlantic": {
       "DET": 1,
@@ -22,9 +22,9 @@
       "NYI": 8
     },
     "Central": {
-      "UTA": 1,
-      "WPG": 2,
-      "COL": 3,
+      "COL": 1,
+      "UTA": 2,
+      "WPG": 3,
       "DAL": 4,
       "CHI": 5,
       "NSH": 6,
@@ -34,10 +34,10 @@
     "Pacific": {
       "VGK": 1,
       "LAK": 2,
-      "EDM": 3,
-      "SEA": 4,
-      "VAN": 5,
-      "ANA": 6,
+      "ANA": 3,
+      "EDM": 4,
+      "SEA": 5,
+      "VAN": 6,
       "SJ": 7,
       "CGY": 8
     }
