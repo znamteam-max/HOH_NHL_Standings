@@ -1,11 +1,11 @@
 {
-  "date": "2025-11-06",
+  "date": "2025-11-07",
   "divisions": {
     "Atlantic": {
       "MTL": 1,
-      "DET": 2,
-      "TOR": 3,
-      "BOS": 4,
+      "BOS": 2,
+      "DET": 3,
+      "TOR": 4,
       "OTT": 5,
       "TBL": 6,
       "BUF": 7,
@@ -26,8 +26,8 @@
       "UTA": 2,
       "WPG": 3,
       "DAL": 4,
-      "NSH": 5,
-      "CHI": 6,
+      "CHI": 5,
+      "NSH": 6,
       "MIN": 7,
       "STL": 8
     },
