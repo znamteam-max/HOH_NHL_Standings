@@ -1,24 +1,24 @@
 {
-  "date": "2025-11-17",
+  "date": "2025-11-18",
   "divisions": {
     "Atlantic": {
       "BOS": 1,
       "DET": 2,
       "MTL": 3,
       "OTT": 4,
-      "TBL": 5,
-      "FLA": 6,
+      "FLA": 5,
+      "TBL": 6,
       "TOR": 7,
       "BUF": 8
     },
     "Metropolitan": {
-      "NJ": 1,
-      "CAR": 2,
+      "CAR": 1,
+      "NJ": 2,
       "PIT": 3,
-      "NYI": 4,
-      "NYR": 5,
-      "PHI": 6,
-      "CBJ": 7,
+      "CBJ": 4,
+      "NYI": 5,
+      "NYR": 6,
+      "PHI": 7,
       "WSH": 8
     },
     "Central": {
