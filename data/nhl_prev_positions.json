@@ -1,5 +1,5 @@
 {
-  "date": "2025-11-19",
+  "date": "2025-11-20",
   "divisions": {
     "Atlantic": {
       "DET": 1,
@@ -18,8 +18,8 @@
       "PIT": 4,
       "CBJ": 5,
       "NYR": 6,
-      "PHI": 7,
-      "WSH": 8
+      "WSH": 7,
+      "PHI": 8
     },
     "Central": {
       "COL": 1,
@@ -34,11 +34,11 @@
     "Pacific": {
       "ANA": 1,
       "LAK": 2,
-      "SEA": 3,
-      "EDM": 4,
-      "VGK": 5,
-      "VAN": 6,
-      "SJ": 7,
+      "VGK": 3,
+      "SEA": 4,
+      "EDM": 5,
+      "SJ": 6,
+      "VAN": 7,
       "CGY": 8
     }
   }
