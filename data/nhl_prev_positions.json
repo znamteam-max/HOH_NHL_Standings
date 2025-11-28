@@ -1,12 +1,12 @@
 {
-  "date": "2025-11-27",
+  "date": "2025-11-28",
   "divisions": {
     "Atlantic": {
       "TBL": 1,
       "BOS": 2,
-      "DET": 3,
-      "MTL": 4,
-      "OTT": 5,
+      "OTT": 3,
+      "DET": 4,
+      "MTL": 5,
       "FLA": 6,
       "TOR": 7,
       "BUF": 8
