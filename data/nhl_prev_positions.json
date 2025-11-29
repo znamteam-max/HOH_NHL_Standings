@@ -1,12 +1,12 @@
 {
-  "date": "2025-11-28",
+  "date": "2025-11-29",
   "divisions": {
     "Atlantic": {
       "TBL": 1,
-      "BOS": 2,
-      "OTT": 3,
-      "DET": 4,
-      "MTL": 5,
+      "MTL": 2,
+      "BOS": 3,
+      "OTT": 4,
+      "DET": 5,
       "FLA": 6,
       "TOR": 7,
       "BUF": 8
@@ -14,8 +14,8 @@
     "Metropolitan": {
       "NJ": 1,
       "CAR": 2,
-      "NYI": 3,
-      "WSH": 4,
+      "WSH": 3,
+      "NYI": 4,
       "PHI": 5,
       "PIT": 6,
       "NYR": 7,
