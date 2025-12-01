@@ -1,5 +1,5 @@
 {
-  "date": "2025-11-30",
+  "date": "2025-12-01",
   "divisions": {
     "Atlantic": {
       "TBL": 1,
@@ -12,10 +12,10 @@
       "BUF": 8
     },
     "Metropolitan": {
-      "NJ": 1,
-      "CAR": 2,
-      "PHI": 3,
-      "WSH": 4,
+      "CAR": 1,
+      "NJ": 2,
+      "WSH": 3,
+      "PHI": 4,
       "NYI": 5,
       "PIT": 6,
       "NYR": 7,
@@ -26,16 +26,16 @@
       "DAL": 2,
       "MIN": 3,
       "UTA": 4,
-      "WPG": 5,
-      "CHI": 6,
+      "CHI": 5,
+      "WPG": 6,
       "STL": 7,
       "NSH": 8
     },
     "Pacific": {
       "ANA": 1,
       "LAK": 2,
-      "SEA": 3,
-      "VGK": 4,
+      "VGK": 3,
+      "SEA": 4,
       "SJ": 5,
       "EDM": 6,
       "VAN": 7,
