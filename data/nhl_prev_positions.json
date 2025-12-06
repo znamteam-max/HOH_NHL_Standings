@@ -1,5 +1,5 @@
 {
-  "date": "2025-12-05",
+  "date": "2025-12-06",
   "divisions": {
     "Atlantic": {
       "TBL": 1,
@@ -32,8 +32,8 @@
       "NSH": 8
     },
     "Pacific": {
-      "ANA": 1,
-      "VGK": 2,
+      "VGK": 1,
+      "ANA": 2,
       "LAK": 3,
       "SJ": 4,
       "EDM": 5,
