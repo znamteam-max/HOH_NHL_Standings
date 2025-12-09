@@ -1,14 +1,14 @@
 {
-  "date": "2025-12-08",
+  "date": "2025-12-09",
   "divisions": {
     "Atlantic": {
       "BOS": 1,
       "TBL": 2,
       "DET": 3,
       "MTL": 4,
-      "FLA": 5,
-      "OTT": 6,
-      "TOR": 7,
+      "TOR": 5,
+      "FLA": 6,
+      "OTT": 7,
       "BUF": 8
     },
     "Metropolitan": {
@@ -37,8 +37,8 @@
       "LAK": 3,
       "SJ": 4,
       "EDM": 5,
-      "SEA": 6,
-      "CGY": 7,
+      "CGY": 6,
+      "SEA": 7,
       "VAN": 8
     }
   }
