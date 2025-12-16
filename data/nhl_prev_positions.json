@@ -1,5 +1,5 @@
 {
-  "date": "2025-12-15",
+  "date": "2025-12-16",
   "divisions": {
     "Atlantic": {
       "DET": 1,
@@ -7,9 +7,9 @@
       "BOS": 3,
       "MTL": 4,
       "FLA": 5,
-      "TOR": 6,
-      "BUF": 7,
-      "OTT": 8
+      "OTT": 6,
+      "TOR": 7,
+      "BUF": 8
     },
     "Metropolitan": {
       "CAR": 1,
@@ -26,14 +26,14 @@
       "DAL": 2,
       "MIN": 3,
       "UTA": 4,
-      "CHI": 5,
-      "WPG": 6,
+      "WPG": 5,
+      "CHI": 6,
       "STL": 7,
       "NSH": 8
     },
     "Pacific": {
-      "VGK": 1,
-      "ANA": 2,
+      "ANA": 1,
+      "VGK": 2,
       "LAK": 3,
       "EDM": 4,
       "SJ": 5,
