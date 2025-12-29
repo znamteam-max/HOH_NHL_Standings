@@ -1,5 +1,5 @@
 {
-  "date": "2025-12-28",
+  "date": "2025-12-29",
   "divisions": {
     "Atlantic": {
       "DET": 1,
@@ -32,9 +32,9 @@
       "CHI": 8
     },
     "Pacific": {
-      "ANA": 1,
-      "EDM": 2,
-      "VGK": 3,
+      "VGK": 1,
+      "ANA": 2,
+      "EDM": 3,
       "LAK": 4,
       "SJ": 5,
       "SEA": 6,
