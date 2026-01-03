@@ -1,5 +1,5 @@
 {
-  "date": "2026-01-02",
+  "date": "2026-01-03",
   "divisions": {
     "Atlantic": {
       "DET": 1,
@@ -16,9 +16,9 @@
       "NYI": 2,
       "WSH": 3,
       "PHI": 4,
-      "PIT": 5,
-      "NJ": 6,
-      "NYR": 7,
+      "NYR": 5,
+      "PIT": 6,
+      "NJ": 7,
       "CBJ": 8
     },
     "Central": {
