@@ -1,10 +1,10 @@
 {
-  "date": "2026-01-10",
+  "date": "2026-01-11",
   "divisions": {
     "Atlantic": {
       "DET": 1,
-      "MTL": 2,
-      "TBL": 3,
+      "TBL": 2,
+      "MTL": 3,
       "BUF": 4,
       "TOR": 5,
       "BOS": 6,
@@ -26,16 +26,16 @@
       "DAL": 2,
       "MIN": 3,
       "UTA": 4,
-      "NSH": 5,
-      "CHI": 6,
+      "CHI": 5,
+      "NSH": 6,
       "STL": 7,
       "WPG": 8
     },
     "Pacific": {
       "EDM": 1,
       "VGK": 2,
-      "SEA": 3,
-      "SJ": 4,
+      "SJ": 3,
+      "SEA": 4,
       "LAK": 5,
       "ANA": 6,
       "CGY": 7,
