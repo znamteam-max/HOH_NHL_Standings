@@ -1,13 +1,13 @@
 {
-  "date": "2026-01-14",
+  "date": "2026-01-15",
   "divisions": {
     "Atlantic": {
       "TBL": 1,
       "DET": 2,
       "MTL": 3,
       "BOS": 4,
-      "TOR": 5,
-      "BUF": 6,
+      "BUF": 5,
+      "TOR": 6,
       "FLA": 7,
       "OTT": 8
     },
@@ -25,8 +25,8 @@
       "COL": 1,
       "DAL": 2,
       "MIN": 3,
-      "NSH": 4,
-      "UTA": 5,
+      "UTA": 4,
+      "NSH": 5,
       "CHI": 6,
       "STL": 7,
       "WPG": 8
