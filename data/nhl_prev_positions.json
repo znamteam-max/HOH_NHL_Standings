@@ -1,9 +1,9 @@
 {
-  "date": "2026-01-16",
+  "date": "2026-01-17",
   "divisions": {
     "Atlantic": {
-      "TBL": 1,
-      "DET": 2,
+      "DET": 1,
+      "TBL": 2,
       "MTL": 3,
       "BOS": 4,
       "BUF": 5,
@@ -27,8 +27,8 @@
       "MIN": 3,
       "UTA": 4,
       "NSH": 5,
-      "CHI": 6,
-      "STL": 7,
+      "STL": 6,
+      "CHI": 7,
       "WPG": 8
     },
     "Pacific": {
