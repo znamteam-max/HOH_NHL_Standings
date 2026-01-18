@@ -1,5 +1,5 @@
 {
-  "date": "2026-01-17",
+  "date": "2026-01-18",
   "divisions": {
     "Atlantic": {
       "DET": 1,
@@ -14,11 +14,11 @@
     "Metropolitan": {
       "CAR": 1,
       "NYI": 2,
-      "WSH": 3,
-      "PIT": 4,
+      "PIT": 3,
+      "WSH": 4,
       "PHI": 5,
-      "NJ": 6,
-      "CBJ": 7,
+      "CBJ": 6,
+      "NJ": 7,
       "NYR": 8
     },
     "Central": {
