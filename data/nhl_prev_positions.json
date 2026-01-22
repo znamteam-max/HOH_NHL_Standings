@@ -1,9 +1,9 @@
 {
-  "date": "2026-01-21",
+  "date": "2026-01-22",
   "divisions": {
     "Atlantic": {
-      "TBL": 1,
-      "DET": 2,
+      "DET": 1,
+      "TBL": 2,
       "MTL": 3,
       "BUF": 4,
       "BOS": 5,
@@ -15,9 +15,9 @@
       "CAR": 1,
       "NYI": 2,
       "PIT": 3,
-      "WSH": 4,
-      "PHI": 5,
-      "NJ": 6,
+      "PHI": 4,
+      "NJ": 5,
+      "WSH": 6,
       "CBJ": 7,
       "NYR": 8
     },
