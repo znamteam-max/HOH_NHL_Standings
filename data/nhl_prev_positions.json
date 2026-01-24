@@ -1,9 +1,9 @@
 {
-  "date": "2026-01-23",
+  "date": "2026-01-24",
   "divisions": {
     "Atlantic": {
-      "DET": 1,
-      "TBL": 2,
+      "TBL": 1,
+      "DET": 2,
       "MTL": 3,
       "BUF": 4,
       "BOS": 5,
@@ -23,8 +23,8 @@
     },
     "Central": {
       "COL": 1,
-      "MIN": 2,
-      "DAL": 3,
+      "DAL": 2,
+      "MIN": 3,
       "UTA": 4,
       "NSH": 5,
       "CHI": 6,
