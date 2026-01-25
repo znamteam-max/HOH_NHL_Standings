@@ -1,14 +1,14 @@
 {
-  "date": "2026-01-24",
+  "date": "2026-01-25",
   "divisions": {
     "Atlantic": {
-      "TBL": 1,
-      "DET": 2,
-      "MTL": 3,
-      "BUF": 4,
+      "DET": 1,
+      "TBL": 2,
+      "BUF": 3,
+      "MTL": 4,
       "BOS": 5,
-      "TOR": 6,
-      "FLA": 7,
+      "FLA": 6,
+      "TOR": 7,
       "OTT": 8
     },
     "Metropolitan": {
@@ -23,8 +23,8 @@
     },
     "Central": {
       "COL": 1,
-      "DAL": 2,
-      "MIN": 3,
+      "MIN": 2,
+      "DAL": 3,
       "UTA": 4,
       "NSH": 5,
       "CHI": 6,
@@ -36,8 +36,8 @@
       "EDM": 2,
       "ANA": 3,
       "SJ": 4,
-      "SEA": 5,
-      "LAK": 6,
+      "LAK": 5,
+      "SEA": 6,
       "CGY": 7,
       "VAN": 8
     }
