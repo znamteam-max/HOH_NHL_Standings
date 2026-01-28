@@ -1,5 +1,5 @@
 {
-  "date": "2026-01-27",
+  "date": "2026-01-28",
   "divisions": {
     "Atlantic": {
       "TBL": 1,
@@ -32,12 +32,12 @@
       "STL": 8
     },
     "Pacific": {
-      "EDM": 1,
-      "VGK": 2,
+      "VGK": 1,
+      "EDM": 2,
       "ANA": 3,
       "SJ": 4,
-      "SEA": 5,
-      "LAK": 6,
+      "LAK": 5,
+      "SEA": 6,
       "CGY": 7,
       "VAN": 8
     }
