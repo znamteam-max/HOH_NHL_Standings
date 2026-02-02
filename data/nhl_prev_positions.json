@@ -1,5 +1,5 @@
 {
-  "date": "2026-02-01",
+  "date": "2026-02-02",
   "divisions": {
     "Atlantic": {
       "TBL": 1,
@@ -34,8 +34,8 @@
     "Pacific": {
       "EDM": 1,
       "VGK": 2,
-      "SEA": 3,
-      "ANA": 4,
+      "ANA": 3,
+      "SEA": 4,
       "LAK": 5,
       "SJ": 6,
       "CGY": 7,
