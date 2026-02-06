@@ -1,5 +1,5 @@
 {
-  "date": "2026-02-05",
+  "date": "2026-02-06",
   "divisions": {
     "Atlantic": {
       "TBL": 1,
@@ -7,9 +7,9 @@
       "MTL": 3,
       "BUF": 4,
       "BOS": 5,
-      "TOR": 6,
-      "FLA": 7,
-      "OTT": 8
+      "OTT": 6,
+      "TOR": 7,
+      "FLA": 8
     },
     "Metropolitan": {
       "CAR": 1,
