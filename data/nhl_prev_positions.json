@@ -1,11 +1,11 @@
 {
-  "date": "2026-02-27",
+  "date": "2026-02-28",
   "divisions": {
     "Atlantic": {
       "TBL": 1,
-      "DET": 2,
-      "MTL": 3,
-      "BUF": 4,
+      "BUF": 2,
+      "DET": 3,
+      "MTL": 4,
       "BOS": 5,
       "OTT": 6,
       "FLA": 7,
@@ -33,8 +33,8 @@
     },
     "Pacific": {
       "VGK": 1,
-      "ANA": 2,
-      "EDM": 3,
+      "EDM": 2,
+      "ANA": 3,
       "SEA": 4,
       "LAK": 5,
       "SJ": 6,
