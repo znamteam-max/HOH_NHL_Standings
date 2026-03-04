@@ -1,5 +1,5 @@
 {
-  "date": "2026-03-03",
+  "date": "2026-03-04",
   "divisions": {
     "Atlantic": {
       "TBL": 1,
@@ -15,8 +15,8 @@
       "CAR": 1,
       "NYI": 2,
       "PIT": 3,
-      "WSH": 4,
-      "CBJ": 5,
+      "CBJ": 4,
+      "WSH": 5,
       "PHI": 6,
       "NJ": 7,
       "NYR": 8
@@ -34,8 +34,8 @@
     "Pacific": {
       "VGK": 1,
       "ANA": 2,
-      "SEA": 3,
-      "EDM": 4,
+      "EDM": 3,
+      "SEA": 4,
       "SJ": 5,
       "LAK": 6,
       "CGY": 7,
