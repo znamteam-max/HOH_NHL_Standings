@@ -1,12 +1,12 @@
 {
-  "date": "2026-03-14",
+  "date": "2026-03-15",
   "divisions": {
     "Atlantic": {
       "BUF": 1,
       "TBL": 2,
       "MTL": 3,
-      "DET": 4,
-      "BOS": 5,
+      "BOS": 4,
+      "DET": 5,
       "OTT": 6,
       "FLA": 7,
       "TOR": 8
@@ -32,12 +32,12 @@
       "CHI": 8
     },
     "Pacific": {
-      "ANA": 1,
-      "VGK": 2,
+      "VGK": 1,
+      "ANA": 2,
       "EDM": 3,
-      "LAK": 4,
-      "SJ": 5,
-      "SEA": 6,
+      "SJ": 4,
+      "SEA": 5,
+      "LAK": 6,
       "CGY": 7,
       "VAN": 8
     }
