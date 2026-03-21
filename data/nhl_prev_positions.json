@@ -1,5 +1,5 @@
 {
-  "date": "2026-03-20",
+  "date": "2026-03-21",
   "divisions": {
     "Atlantic": {
       "BUF": 1,
@@ -16,8 +16,8 @@
       "PIT": 2,
       "NYI": 3,
       "CBJ": 4,
-      "PHI": 5,
-      "WSH": 6,
+      "WSH": 5,
+      "PHI": 6,
       "NJ": 7,
       "NYR": 8
     },
