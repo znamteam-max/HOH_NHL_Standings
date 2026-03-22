@@ -1,12 +1,12 @@
 {
-  "date": "2026-03-21",
+  "date": "2026-03-22",
   "divisions": {
     "Atlantic": {
       "BUF": 1,
       "TBL": 2,
       "BOS": 3,
-      "DET": 4,
-      "MTL": 5,
+      "MTL": 4,
+      "DET": 5,
       "OTT": 6,
       "FLA": 7,
       "TOR": 8
@@ -14,10 +14,10 @@
     "Metropolitan": {
       "CAR": 1,
       "PIT": 2,
-      "NYI": 3,
-      "CBJ": 4,
-      "WSH": 5,
-      "PHI": 6,
+      "CBJ": 3,
+      "NYI": 4,
+      "PHI": 5,
+      "WSH": 6,
       "NJ": 7,
       "NYR": 8
     },
