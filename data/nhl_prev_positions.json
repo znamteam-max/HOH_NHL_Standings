@@ -1,5 +1,5 @@
 {
-  "date": "2026-03-30",
+  "date": "2026-03-31",
   "divisions": {
     "Atlantic": {
       "TBL": 1,
@@ -13,9 +13,9 @@
     },
     "Metropolitan": {
       "CAR": 1,
-      "NYI": 2,
-      "CBJ": 3,
-      "PIT": 4,
+      "PIT": 2,
+      "NYI": 3,
+      "CBJ": 4,
       "PHI": 5,
       "WSH": 6,
       "NJ": 7,
@@ -36,8 +36,8 @@
       "EDM": 2,
       "VGK": 3,
       "LAK": 4,
-      "SEA": 5,
-      "SJ": 6,
+      "SJ": 5,
+      "SEA": 6,
       "CGY": 7,
       "VAN": 8
     }
