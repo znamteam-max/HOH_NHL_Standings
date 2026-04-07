@@ -1,5 +1,5 @@
 {
-  "date": "2026-04-06",
+  "date": "2026-04-07",
   "divisions": {
     "Atlantic": {
       "TBL": 1,
@@ -27,8 +27,8 @@
       "MIN": 3,
       "UTA": 4,
       "NSH": 5,
-      "STL": 6,
-      "WPG": 7,
+      "WPG": 6,
+      "STL": 7,
       "CHI": 8
     },
     "Pacific": {
