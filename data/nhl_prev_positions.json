@@ -1,10 +1,10 @@
 {
-  "date": "2026-04-09",
+  "date": "2026-04-10",
   "divisions": {
     "Atlantic": {
       "BUF": 1,
-      "TBL": 2,
-      "MTL": 3,
+      "MTL": 2,
+      "TBL": 3,
       "BOS": 4,
       "OTT": 5,
       "DET": 6,
@@ -15,8 +15,8 @@
       "CAR": 1,
       "PIT": 2,
       "PHI": 3,
-      "CBJ": 4,
-      "NYI": 5,
+      "NYI": 4,
+      "CBJ": 5,
       "WSH": 6,
       "NJ": 7,
       "NYR": 8
@@ -33,8 +33,8 @@
     },
     "Pacific": {
       "EDM": 1,
-      "VGK": 2,
-      "ANA": 3,
+      "ANA": 2,
+      "VGK": 3,
       "LAK": 4,
       "SJ": 5,
       "SEA": 6,
