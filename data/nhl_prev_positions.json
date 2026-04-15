@@ -1,5 +1,5 @@
 {
-  "date": "2026-04-14",
+  "date": "2026-04-15",
   "divisions": {
     "Atlantic": {
       "BUF": 1,
@@ -13,8 +13,8 @@
     },
     "Metropolitan": {
       "CAR": 1,
-      "PIT": 2,
-      "PHI": 3,
+      "PHI": 2,
+      "PIT": 3,
       "WSH": 4,
       "CBJ": 5,
       "NYI": 6,
