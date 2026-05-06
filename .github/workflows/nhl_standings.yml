@@ -2,8 +2,6 @@ name: NHL standings to Telegram
 
 on:
   workflow_dispatch:
-  schedule:
-    - cron: "10 5 * * *"  # каждый день ~07:10 по Европе/Хельсинки (cron в UTC)
 
 permissions:
   contents: write   # нужно для коммита файла с «вчерашними» позициями
